@@ -4,9 +4,11 @@ import cv2
 import numpy as np
 from scipy.cluster.hierarchy import linkage, dendrogram
 
-INPUT_DIR = 'input'
-OUTPUT_DIR = 'output'
-OUTPUT_Str = 'output_'
+from utils import progressbar
+
+INPUT_DIR = 'vid2vector_input'
+OUTPUT_DIR = 'vid2vector_output'
+OUTPUT_Str = 'vid2vector_output_'
 SCALE_REDUCTION = 4
 
 
@@ -147,18 +149,6 @@ def vectorize(input_video, output_video):
     # Release the video capture and writer
     cap.release()
     out.release()
-
-
-def progressbar(i, upper_range):
-    percentComplete = int(i / (upper_range) * 100)
-
-    # Some functions in this project take some time to run due to loops.
-    # This gives visual indication of progress
-    progress_string = f'\r{("#" * percentComplete)}{("_" * ((100) - percentComplete))} {percentComplete} / {100} [ Printing Frame: {i} ]'
-    if i == upper_range:
-        print(progress_string)
-    else:
-        print(progress_string, end='')
 
 
 if __name__ == '__main__':

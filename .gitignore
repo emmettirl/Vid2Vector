@@ -1,3 +1,9 @@
 output/
 input/
 /.idea/
+/audio_output/
+/audio_input/
+/audio2Vector_input/
+/audio2Vector_output/
+/vid2vector_input/
+/vid2vector_output/
