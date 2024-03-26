@@ -17,6 +17,11 @@ def main():
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
+    # if directiory is empty, exit
+    if not os.listdir(INPUT_DIR):
+        print(f"Input directory {INPUT_DIR} is empty. Add .mp4 files to the directory and run the script again.")
+        return
+
     # Process all video files in the input directory
     for file in os.listdir(INPUT_DIR):
         if file.endswith('.mp4'):
